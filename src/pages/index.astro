@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { bookmarks } from "../data/bookmarks"
+---
+
+<Layout title="Random design links">
+	<main class="min-h-screen px-6 py-16 max-w-4xl mx-auto">
+		<h1 class="text-5xl font-thin">This is a glorified set of bookmarks and only exists so I can share them easily, Enjoy.<span class="text-sm font-bold text-zinc-500">(Literally, I exported this from my browser's bookmarks)</span></h1>
+		<div class="h-12" />
+		<ul class="flex flex-col transition-colors hover:text-zinc-600 pointer-events-none">
+			{bookmarks.map(({ title, uri }) => (
+				<li class="last:border-b border-t border-zinc-700">
+					<a class="py-6 block transition-colors hover:text-zinc-50  pointer-events-auto" target="_blank" rel="noopener noreferrer" href={uri}>{title}</a>
+				</li>
+			))}
+		</ul>
+	</main>
+</Layout>
